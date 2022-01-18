@@ -1,5 +1,5 @@
 import Menu from './pages/Menu'
-import HeroSection from './pages/HeroSection/HeroText'
+import HeroSection from './pages/HeroSection/HeroSection'
 import './styles/App.sass'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Menu />
+        <HeroSection />
       </header>
     </div>
   );
