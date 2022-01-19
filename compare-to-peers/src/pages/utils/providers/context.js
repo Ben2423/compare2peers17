@@ -4,7 +4,7 @@ const Provider = ({ children }) => {
 		
 	const [raiseValues, setRaiseValues] = useState([750000, 2000000]) // [min, max]
 	
-  const value = {
+  const value= {
 		raiseValues,
     handleRaiseValues: (min, max) => {
       setRaiseValues([min, max])

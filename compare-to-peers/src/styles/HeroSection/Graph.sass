@@ -1,13 +1,74 @@
 #card-area
     background-color: #555555
     content: ""
-    height: 320px
+    height: 300px
     color: white
     width: 600px
+    border-radius: 10px
+    filter: drop-shadow(-10mm 10mm 2rem #3077b8)
 
-#card-area > input 
-    -webkit-appearance: none
-    height: 30px
-    width: 491.95px
-
+.input-range-area
+    width: 500px
+    background: #eaf1f7
+    content: ""
+    height: 25px
+    display: flex
+    position: relative 
+    top: 9.5rem
+    left: 3rem
     border-radius: 30px
+  
+    
+
+#card-area > h2
+    position: relative 
+    top: 3rem
+    left: 3rem
+
+@mixin rangeSlider 
+    flex: 6
+    -webkit-appearance: none
+    padding-top: 1px
+    width: 240px
+    position: absolute
+    border-radius: 5px
+    top: -21px
+    left: 25px
+    background-color: transparent
+
+@mixin thumbSlider
+    -webkit-appearance: none
+    appearance: none
+    width: 22px
+    height: 22px
+    border-radius: 50%
+    background: #3077b8
+    cursor: pointer
+    margin-top: 20px
+
+.range
+    @include rangeSlider
+    &::-webkit-slider-thumb 
+       @include thumbSlider
+       
+
+.overlay-value
+    -webkit-appearance: none
+    width: 220px
+    position: absolute
+    left: 250px
+    background-color: transparent
+    flex: 6
+    top: -20px
+    &::-webkit-slider-thumb 
+        -webkit-appearance: none
+        appearance: none
+        width: 22px
+        height: 22px
+        border-radius: 50%
+        background: #3077b8
+        cursor: pointer
+        margin-top: 20px
+    
+  
+
