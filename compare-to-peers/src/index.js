@@ -6,8 +6,10 @@ import Context from './pages/utils/providers/context';
 
 ReactDOM.render(
   <React.StrictMode>
-      <Context.Provider>
-        <App />
+
+    <Context.Provider>
+      <App />
+
     </Context.Provider>
   </React.StrictMode>,
   document.getElementById('root')
