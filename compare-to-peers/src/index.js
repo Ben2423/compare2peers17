@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Context from './pages/utils/providers/context';
+import ContextTags from './pages/utils/providers/tagsdata';
 
 ReactDOM.render(
   <React.StrictMode>
-
     <Context.Provider>
-      <App />
-
+      <ContextTags.Provider>
+        <App />
+      </ContextTags.Provider>
     </Context.Provider>
   </React.StrictMode>,
   document.getElementById('root')

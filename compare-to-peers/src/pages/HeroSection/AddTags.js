@@ -1,16 +1,15 @@
 //dependencies 
 import styled from 'styled-components';
-import React, {useState} from 'react'
-
-//JSON data
-import originalIndustryTags from '../../data/industryTags.json/industryTags.json'
+import React, {useState, useContext} from 'react'
+import { ContextTags } from '../utils/providers/tagsdata'
 
 // imported pages
 import Tag from './Tag'
 
 export default function AddTags () {
-//original company tags data to be displayed via drop down
-    const [originalDataTags, setOriginalDataTags] = useState(originalIndustryTags)
+
+    const {originalTagsData, FilterTags} = useContext(ContextTags)
+
 
 
     const [display, resetDisplay] = useState('display-off')
@@ -30,9 +29,9 @@ export default function AddTags () {
                 <p class="input-name">Select industry</p>
                 <input placeholder="select industry" onClick={handleChange}/>
                 <div className={display}>
-                    {originalDataTags.map(tag=> {
+                    {originalTagsData.map(tag=> {
                         return (
-                            <Tag tag={tag} />
+                            <Tag tag={tag} FilterTags={FilterTags}/>
                         )
                     })}
                 </div>
