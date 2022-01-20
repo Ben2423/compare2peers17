@@ -20,9 +20,9 @@ export default function Tag({
     }
 
     return (
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" onClick={handleClick}>
         {tag.label}
-        <img onClick={handleClick} src={closeBtn}  />
+        <img src={closeBtn} />
     </div>
     )
 }
