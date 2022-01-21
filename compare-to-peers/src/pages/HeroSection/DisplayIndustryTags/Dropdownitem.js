@@ -10,7 +10,8 @@ export default function Tag({
     //data
     tag,
     FilterTags,
-    addTagFromDropDown
+    addTagFromDropDown,
+    cancelTag
 
 
 }) 

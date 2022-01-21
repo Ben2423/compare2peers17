@@ -23,6 +23,7 @@ const Provider = ({ children }) => {
     //json data for industry tags
 	const [filteredTagsData, setfilteredTagsData] = useState(filteredTags)
     const [selectIndustryTags, setSelectIndustryTags] = useState(selectTags)
+    
 
 
     function addTagFromDropDown (newLabel){
@@ -59,6 +60,7 @@ const Provider = ({ children }) => {
         selectIndustryTags,
         addTagFromDropDown,
         FilterTags,
+        setSelectIndustryTags,
 
         moreFiltersData,
         removeDropDown

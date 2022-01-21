@@ -20,7 +20,7 @@ export default function DropDownFilters ({
 
 return (
 
-        <div class="dropdown-menu" onClick={handleClick}>
+        <div class="dropdown-filter-menu" onClick={handleClick}>
             {tag.label}
         </div>
 

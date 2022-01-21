@@ -9,7 +9,7 @@ import DropDownFilterItem from './DisplayMoreFilters/DropDownFilters'
 
 export default function AddTags () {
 
-    const {filteredTagsData, removeDropDown, addTagFromDropDown, moreFiltersData, FilterTags} = useContext(ContextTags)
+    const {filteredTagsData, removeDropDown, addTagFromDropDown, moreFiltersData, selectIndustryTags, setSelectIndustryTags, FilterTags} = useContext(ContextTags)
 
 
 
@@ -29,7 +29,14 @@ export default function AddTags () {
         }
         else setFiltersDisplay('filter-dropdown-on')
     }
-    
+
+    const cancelTag = (id) => {
+        let filtered = selectIndustryTags.filter(tagname => {
+          return tagname.id != id
+         })
+         setSelectIndustryTags(filtered)
+        
+      }
 
 
     return (
@@ -40,7 +47,7 @@ export default function AddTags () {
                 <div className={industryDropDownOptions}>
                     {filteredTagsData.map(tag=> {
                         return (
-                            <DropDownItem tag={tag} addTagFromDropDown={addTagFromDropDown} FilterTags={FilterTags}/>
+                            <DropDownItem tag={tag} addTagFromDropDown={addTagFromDropDown} cancelTag={cancelTag} FilterTags={FilterTags}/>
                         )
                     })}
                 </div>
