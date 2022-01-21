@@ -4,10 +4,11 @@ import { ContextTags } from '../utils/providers/tagsdata'
 
 // imported pages
 import Tag from './Tag'
+import DropDownItem from './Dropdownitem'
 
 export default function AddTags () {
 
-    const {originalTagsData, FilterTags} = useContext(ContextTags)
+    const {filteredTagsData, addTagFromDropDown, FilterTags} = useContext(ContextTags)
 
 
 
@@ -28,9 +29,9 @@ export default function AddTags () {
                 <p class="input-name">Select industry</p>
                 <input placeholder="select industry" onClick={handleChange}/>
                 <div className={display}>
-                    {originalTagsData.map(tag=> {
+                    {filteredTagsData.map(tag=> {
                         return (
-                            <Tag tag={tag} FilterTags={FilterTags}/>
+                            <DropDownItem tag={tag} addTagFromDropDown={addTagFromDropDown} FilterTags={FilterTags}/>
                         )
                     })}
                 </div>

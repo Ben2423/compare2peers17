@@ -1,5 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react'
-import originalTags from '../../../data/industryTags.json/industryTags.json'
+
+
+
+//select Industry tags JsonData
+import filteredTags from '../../../data/industryTags.json/filteredIndustryTags.json'
+import selectTags from '../../../data/industryTags.json/selectedIndustryTags.json'
+
+
 
 export const ContextTags = createContext()
 
@@ -8,25 +15,31 @@ export const ContextTags = createContext()
 
 const Provider = ({ children }) => {
  
-		
-	const [originalTagsData, setoriginalTagsData] = useState(originalTags) 
+	const [filteredTagsData, setfilteredTagsData] = useState(filteredTags)
+    const [selectIndustryTags, setSelectIndustryTags] = useState(selectTags)
 
- 
 
+    function addTagFromDropDown (newLabel){
+        let copy = [...selectIndustryTags]
+        let lastLabel = copy.at(-1), idLabel
+        if(lastLabel) { idLabel = lastLabel.id + 1 } 
+        else { idLabel = 1 }
+        copy = [...copy, { id: idLabel, label: newLabel, active: false}];
+        setSelectIndustryTags(copy);
+    }
 
     function FilterTags (remainingTag) {
-        console.log('tags data')
-        let filter = originalTagsData.filter(company => {
+        let filter = filteredTagsData.filter(company => {
             return company.label != remainingTag
           })
-          setoriginalTagsData(filter)
-          console.log(originalTags)
-        
+          setfilteredTagsData(filter)   
     }
 	
-  const value= {
-      originalTagsData,
-      FilterTags
+    const value= {
+        filteredTagsData,
+        selectIndustryTags,
+        addTagFromDropDown,
+        FilterTags
 
 	}
 
