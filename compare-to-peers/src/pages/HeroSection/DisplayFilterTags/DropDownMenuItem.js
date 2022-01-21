@@ -2,40 +2,46 @@ import closeBtn from '../../../assets/closeBtn.svg'
 import React, { useContext, useState } from 'react'
 import { ContextTags } from '../../utils/providers/tagsdata'
 
+export default function DropDownFilters ({
 
-export default function Tag({
-    tag,
-}) 
+    tag
 
-{
-    const {selectIndustryTags, setSelectIndustryTags, filteredTagsData, setfilteredTagsData} = useContext(ContextTags)
+}
  
+) {
+    const {moreFilteredData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags} = useContext(ContextTags)
+
     const addTagFromDropDown = function (newLabel){
-        let copy = [...selectIndustryTags]
+        let copy = [...selectedFilterTags]
         let lastLabel = copy.at(-1), idLabel
         if(lastLabel) { idLabel = lastLabel.id + 1 } 
         else { idLabel = 1 }
         copy = [...copy, { id: idLabel, label: newLabel, active: false}];
-        setSelectIndustryTags(copy);
+        setSelectFilterTags(copy);
     }
+
+   
   
     const removeTag = function(id) {
-        let filtered = filteredTagsData.filter(tagname => {
+        let filtered = moreFilteredData.filter(tagname => {
           return tagname.id != id
          })
-         setfilteredTagsData(filtered)
+         setfilteredMoreData(filtered)
        
     }
-    
 
     function handleClick() {
         removeTag(tag.id)
         addTagFromDropDown(tag.label)
     }
 
-    return (
-        <div class="dropdown-menu" onClick={handleClick}>
+
+return (
+
+        <div class="dropdown-filter-menu" onClick={handleClick}>
             {tag.label}
-         </div>
-    )
+        </div>
+
+)
+
 }

@@ -15,16 +15,16 @@ export default function Filter({
 }) 
 {
 
-    const {selectedFilterTags, setSelectFilterTags, moreFilterTags, setMoreFilterTags} = useContext(ContextTags)
+    const {moreFiltersData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags} = useContext(ContextTags)
 
 
     const addTagToOriginalData = (newLabel) => {
-        let copy = [...moreFilterTags]
+        let copy = [...moreFiltersData]
         let lastLabel = copy.at(-1), idLabel
         if(lastLabel) { idLabel = lastLabel.id + 1 } 
         else { idLabel = 1 }
         copy = [...copy, { id: idLabel, label: newLabel, active: false}];
-        setMoreFilterTags(copy);
+        setfilteredMoreData(copy);
       }
 
       

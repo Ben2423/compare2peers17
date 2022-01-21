@@ -7,7 +7,7 @@ import filteredTags from '../../../data/industryTags.json/filteredIndustryTags.j
 import selectTags from '../../../data/industryTags.json/selectedIndustryTags.json'
 
 //select Additional Filters JsonData
-import filterMoreFilters from '../../../data/AddNewFilters/filteredNewFilters.json'
+import filteredMoreData from '../../../data/AddNewFilters/filteredNewFilters.json'
 import selectedFilters from '../../../data/AddNewFilters/selectedFilters.json'
 
 
@@ -22,55 +22,26 @@ const Provider = ({ children }) => {
 	const [filteredTagsData, setfilteredTagsData] = useState(filteredTags)
     const [selectIndustryTags, setSelectIndustryTags] = useState(selectTags)
 
-    const [moreFilterTags, setMoreFilterTags] = useState(filterMoreFilters)
+    //filterTags
+    const [moreFilteredData, setfilteredMoreData] = useState(filteredMoreData)
     const [selectedFilterTags, setSelectFilterTags] = useState(selectedFilters)
 
     console.log(selectTags)
     console.log(selectIndustryTags)
     
-    function addTagFromDropDown (newLabel){
-        let copy = [...selectIndustryTags]
-        let lastLabel = copy.at(-1), idLabel
-        if(lastLabel) { idLabel = lastLabel.id + 1 } 
-        else { idLabel = 1 }
-        copy = [...copy, { id: idLabel, label: newLabel, active: false}];
-        setSelectIndustryTags(copy);
-    }
-
-    function FilterTags (remainingTag) {
-        let filter = filteredTagsData.filter(company => {
-            return company.label != remainingTag
-          })
-          setfilteredTagsData(filter)   
-    }
-
-    // additional filters json DATA
-    const [moreFiltersData, setfilterMoreFilters] = useState(filterMoreFilters)
-
-    function removeDropDown (remainingTag)
-    {
-        let filter = moreFiltersData.filter(company => {
-            return company.label != remainingTag
-          })
-          setfilterMoreFilters(filter)   
-    }
-
+ 
 
 	
     const value= {
-        filteredTagsData,
-        selectIndustryTags,
-        FilterTags,
-        setSelectIndustryTags,
-        moreFiltersData,
-        removeDropDown,
-        addTagFromDropDown,
+        filteredTagsData, 
         setfilteredTagsData,
-        selectedFilterTags,
+        selectIndustryTags, 
+        setSelectIndustryTags,
+        moreFilteredData, 
+        setfilteredMoreData,
+        selectedFilterTags, 
         setSelectFilterTags,
-        moreFilterTags, 
-        setMoreFilterTags
-
+      
 	}
 
 	return (

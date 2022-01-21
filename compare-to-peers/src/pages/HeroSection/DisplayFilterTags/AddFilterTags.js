@@ -7,7 +7,7 @@ import DropDownItem from '../DisplayIndustryTags/DropDownMenu'
 export default function AddFilter () {
     const [display, resetDisplay] = useState('display-off')
 
-    const {filterMoreFilters, FilterTags, addTagFromDropDown} = useContext(ContextTags)
+    const {moreFilteredData} = useContext(ContextTags)
 
     function handleChange () {
         if (display == 'display-on') {
@@ -20,9 +20,9 @@ export default function AddFilter () {
     return (
         <div> 
          <div className={display}>
-        {filterMoreFilters.map(tag=> {
+        {moreFilteredData.map(tag=> {
             return (
-                <DropDownItem tag={tag} addTagFromDropDown={addTagFromDropDown} FilterTags={FilterTags}/>
+                <DropDownItem tag={tag} addTagFromDropDown={addTagFromDropDown} />
             )
         })}
 

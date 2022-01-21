@@ -5,11 +5,11 @@ import { ContextTags } from '../utils/providers/tagsdata'
 // imported pages
 
 import DropDownItem from './DisplayIndustryTags/DropDownMenu'
-import DropDownFilterItem from './DisplayFilterTags/DropDownFilters'
+import DropDownFilterItem from './DisplayFilterTags/DropDownMenuItem'
 
 export default function AddTags () {
 
-    const {filteredTagsData, removeDropDown, addTagFromDropDown, moreFiltersData, selectIndustryTags, setSelectIndustryTags, FilterTags} = useContext(ContextTags)
+    const {filteredTagsData,  moreFilteredData} = useContext(ContextTags)
 
 
 // display dropdown menu when input box for 'select industry' or 'additional filters' is clicked
@@ -44,7 +44,7 @@ export default function AddTags () {
                 <div className={industryDropDownOptions}>
                     {filteredTagsData.map(tag=> {
                         return (
-                            <DropDownItem tag={tag} addTagFromDropDown={addTagFromDropDown} FilterTags={FilterTags}/>
+                            <DropDownItem tag={tag} />
                         )
                     })}
                 </div>
@@ -57,9 +57,9 @@ export default function AddTags () {
                 <input placeholder="additional filters" onClick={handleMoreFiltersDropDown} />
             </div>
             <div className={filtersDropDownOptions}>
-                {moreFiltersData.map(tag=> {
+                {moreFilteredData.map(tag=> {
                     return (
-                        <DropDownFilterItem tag={tag} removeDropDown={removeDropDown} addTagFromDropDown={addTagFromDropDown}/>
+                        <DropDownFilterItem tag={tag}/>
                     )
                 })}
             </div>
