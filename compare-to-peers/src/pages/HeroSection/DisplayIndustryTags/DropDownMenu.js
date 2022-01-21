@@ -1,21 +1,14 @@
 import closeBtn from '../../../assets/closeBtn.svg'
 import React, { useContext, useState } from 'react'
-import { Context } from '../../utils/providers/tagsdata'
+import { ContextTags } from '../../utils/providers/tagsdata'
 
 
 export default function Tag({
-    //functions
-  
-
-    //data
     tag,
-    FilterTags,
-    addTagFromDropDown,
-    cancelTag
-
-
 }) 
+
 {
+    const {addTagFromDropDown, FilterTags} = useContext(ContextTags)
  
     function handleClick() {
         FilterTags(tag.label)

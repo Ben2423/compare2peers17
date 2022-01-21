@@ -1,7 +1,6 @@
 import closeBtn from '../../../assets/closeBtn.svg'
 import React, { useContext, useState } from 'react'
-import { Context } from '../../utils/providers/tagsdata'
-import { randomNumber } from "../../utils/providers"
+import { ContextTags } from '../../utils/providers/tagsdata'
 
 export default function Tag({
     //functions
@@ -9,32 +8,33 @@ export default function Tag({
 
     //data
     tag,
-    FilterTags,
-    addTagFromDropDown
 
 
 }) 
 {
+
+    const {selectIndustryTags, setSelectIndustryTags} = useContext(ContextTags)
  
-    function handleClick() {
-        FilterTags(tag.label)
-        addTagFromDropDown(tag.label)
+
+  
+    function cancelBtn (id) {
+        let filtered = selectIndustryTags.filter(tagname => {
+            return tagname.id != id
+           })
+           setSelectIndustryTags(filtered)
     }
 
-    function handleBgColor () {
-        const colors = ['#1977F3', '#1977F3']
-        let randomN = randomNumber(0,2)
-        return colors[randomN]
-    }
- 
-   
+    function handleCancelBtn (id) {
+        
+          
+        }
 
 
     return (
     <div class="tag-position-area">
-        <div style={{backgroundColor: handleBgColor()}} class="tag-area" onClick={handleClick}>
+        <div class="tag-area" >
             {tag.label}
-            <img class="closeBtn" src={closeBtn} />
+            <img class="closeBtn" src={closeBtn} onClick={handleCancelBtn(tag.id)}/>
          </div>
     </div>
     )

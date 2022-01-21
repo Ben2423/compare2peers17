@@ -13,9 +13,6 @@ import filterMoreFilters from '../../../data/AddNewFilters/filteredNewFilters.js
 
 export const ContextTags = createContext()
 
-
-
-
 const Provider = ({ children }) => {
  
     //***** this section is for selecting industry dropdown items and tags ***
@@ -23,9 +20,10 @@ const Provider = ({ children }) => {
     //json data for industry tags
 	const [filteredTagsData, setfilteredTagsData] = useState(filteredTags)
     const [selectIndustryTags, setSelectIndustryTags] = useState(selectTags)
+
+    console.log(selectTags)
+    console.log(selectIndustryTags)
     
-
-
     function addTagFromDropDown (newLabel){
         let copy = [...selectIndustryTags]
         let lastLabel = copy.at(-1), idLabel
@@ -58,12 +56,11 @@ const Provider = ({ children }) => {
     const value= {
         filteredTagsData,
         selectIndustryTags,
-        addTagFromDropDown,
         FilterTags,
         setSelectIndustryTags,
-
         moreFiltersData,
-        removeDropDown
+        removeDropDown,
+        addTagFromDropDown
 
 	}
 

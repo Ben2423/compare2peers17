@@ -4,11 +4,12 @@ import Tag from './Tag'
 
 export default function DisplayTags() {
     const {selectIndustryTags, filteredTagsData} = useContext(ContextTags)
+    console.log(selectIndustryTags)
 
     return (
         <div >
         <div class="display-tags-area">
-            {filteredTagsData.map(tag=> {
+            {selectIndustryTags.map(tag=> {
                 return (
                     <Tag tag={tag} />
                 )
