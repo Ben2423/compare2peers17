@@ -2,7 +2,7 @@ import AddTags from './AddTags'
 import HeroText from './HeroText'
 import RaiseGraph from './RaiseGraph'
 import DisplayTags from './DisplayIndustryTags/DisplayTags'
-import DisplayFilters from './DisplayMoreFilters/DisplayFilters'
+import DisplayFilters from './DisplayFilterTags/DisplayFilters'
 
 export default function HeroSection () {
     return (

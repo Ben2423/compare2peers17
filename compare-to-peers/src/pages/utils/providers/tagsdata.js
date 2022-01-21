@@ -8,6 +8,7 @@ import selectTags from '../../../data/industryTags.json/selectedIndustryTags.jso
 
 //select Additional Filters JsonData
 import filterMoreFilters from '../../../data/AddNewFilters/filteredNewFilters.json'
+import selectedFilters from '../../../data/AddNewFilters/selectedFilters.json'
 
 
 
@@ -20,6 +21,9 @@ const Provider = ({ children }) => {
     //json data for industry tags
 	const [filteredTagsData, setfilteredTagsData] = useState(filteredTags)
     const [selectIndustryTags, setSelectIndustryTags] = useState(selectTags)
+
+    const [moreFilterTags, setMoreFilterTags] = useState(filterMoreFilters)
+    const [selectedFilterTags, setSelectFilterTags] = useState(selectedFilters)
 
     console.log(selectTags)
     console.log(selectIndustryTags)
@@ -60,7 +64,12 @@ const Provider = ({ children }) => {
         setSelectIndustryTags,
         moreFiltersData,
         removeDropDown,
-        addTagFromDropDown
+        addTagFromDropDown,
+        setfilteredTagsData,
+        selectedFilterTags,
+        setSelectFilterTags,
+        moreFilterTags, 
+        setMoreFilterTags
 
 	}
 

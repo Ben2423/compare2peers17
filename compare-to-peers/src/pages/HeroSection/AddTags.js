@@ -5,7 +5,7 @@ import { ContextTags } from '../utils/providers/tagsdata'
 // imported pages
 
 import DropDownItem from './DisplayIndustryTags/DropDownMenu'
-import DropDownFilterItem from './DisplayMoreFilters/DropDownFilters'
+import DropDownFilterItem from './DisplayFilterTags/DropDownFilters'
 
 export default function AddTags () {
 

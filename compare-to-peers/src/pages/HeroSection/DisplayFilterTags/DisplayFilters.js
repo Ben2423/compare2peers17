@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { ContextTags } from '../../utils/providers/tagsdata'
-import Filter from './Filter'
+import Filter from './FilterTag'
 
 export default function DisplayFilters() {
     const {moreFiltersData} = useContext(ContextTags)

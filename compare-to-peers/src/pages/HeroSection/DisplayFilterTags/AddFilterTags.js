@@ -2,7 +2,7 @@
 import React, {useState, useContext} from 'react'
 import { ContextTags } from '../../utils/providers/tagsdata'
 
-import DropDownItem from '../DisplayIndustryTags/Dropdownitem'
+import DropDownItem from '../DisplayIndustryTags/DropDownMenu'
 
 export default function AddFilter () {
     const [display, resetDisplay] = useState('display-off')
