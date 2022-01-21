@@ -1,5 +1,4 @@
 //dependencies 
-import styled from 'styled-components';
 import React, {useState, useContext} from 'react'
 import { ContextTags } from '../utils/providers/tagsdata'
 
