@@ -1,0 +1,16 @@
+[{
+    "id": 1,
+    "label": "retail",
+    "active": true  },
+ {
+      "id": 2,
+      "label": "NFT",
+      "active": true  },
+
+  {
+        "id": 3,
+        "label": "EdTech",
+        "active": true  }
+
+  
+  ]

@@ -1,4 +1,4 @@
-import AddTags from './DisplayIndustryTags/AddTags'
+import AddTags from './AddTags'
 import HeroText from './HeroText'
 import RaiseGraph from './RaiseGraph'
 import DisplayTags from './DisplayIndustryTags/DisplayTags'

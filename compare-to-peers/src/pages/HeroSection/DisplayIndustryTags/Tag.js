@@ -1,7 +1,7 @@
-import closeBtn from '../../assets/closeBtn.svg'
+import closeBtn from '../../../assets/closeBtn.svg'
 import React, { useContext, useState } from 'react'
-import { Context } from '../../pages/utils/providers/tagsdata'
-import { randomNumber } from "../utils/providers/"
+import { Context } from '../../utils/providers/tagsdata'
+import { randomNumber } from "../../utils/providers"
 
 export default function Tag({
     //functions
