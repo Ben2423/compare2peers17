@@ -1,9 +1,9 @@
 //dependencies 
 import React, {useState, useContext} from 'react'
-import { ContextTags } from '../utils/providers/tagsdata'
+import { ContextTags } from '../../utils/providers/tagsdata'
 
 // imported pages
-import Tag from './Tag'
+import Tag from '../Tag'
 import DropDownItem from './Dropdownitem'
 
 export default function AddTags () {

@@ -1,7 +1,7 @@
-import AddTags from './AddTags'
+import AddTags from './DisplayIndustryTags/AddTags'
 import HeroText from './HeroText'
 import RaiseGraph from './RaiseGraph'
-import DisplayTags from './DisplayTags'
+import DisplayTags from './DisplayIndustryTags/DisplayTags'
 
 export default function HeroSection () {
     return (
@@ -9,7 +9,9 @@ export default function HeroSection () {
             <div id="hero-left">
                 <HeroText />
                 <AddTags />
-                <DisplayTags/>
+                <div class="tags-position">
+                    <DisplayTags/>
+                </div>
            
             </div>
             <div id="hero-right">

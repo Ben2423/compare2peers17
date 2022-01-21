@@ -22,7 +22,7 @@ export default function Tag({
     }
 
     function handleBgColor () {
-        const colors = ['#FEB534','#FF9595']
+        const colors = ['#1977F3', '#1977F3']
         let randomN = randomNumber(0,2)
         return colors[randomN]
     }
@@ -31,7 +31,7 @@ export default function Tag({
 
 
     return (
-    <div >
+    <div class="tag-position-area">
         <div style={{backgroundColor: handleBgColor()}} class="tag-area" onClick={handleClick}>
             {tag.label}
             <img class="closeBtn" src={closeBtn} />

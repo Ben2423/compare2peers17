@@ -1,6 +1,6 @@
-import closeBtn from '../../assets/closeBtn.svg'
+import closeBtn from '../../../assets/closeBtn.svg'
 import React, { useContext, useState } from 'react'
-import { Context } from '../utils/providers/tagsdata'
+import { Context } from '../../utils/providers/tagsdata'
 
 
 export default function Tag({
