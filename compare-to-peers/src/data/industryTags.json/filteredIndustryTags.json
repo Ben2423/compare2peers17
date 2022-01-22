@@ -5,12 +5,9 @@
  {
       "id": 2,
       "label": "NFT",
-      "active": true  },
+      "active": true  }
 
-  {
-        "id": 3,
-        "label": "EdTech",
-        "active": true  }
+  
 
   
   ]

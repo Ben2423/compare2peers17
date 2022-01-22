@@ -15,11 +15,11 @@ export default function Filter({
 }) 
 {
 
-    const {moreFiltersData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags} = useContext(ContextTags)
+    const {moreFilteredData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags} = useContext(ContextTags)
 
 
     const addTagToOriginalData = (newLabel) => {
-        let copy = [...moreFiltersData]
+        let copy = [...moreFilteredData]
         let lastLabel = copy.at(-1), idLabel
         if(lastLabel) { idLabel = lastLabel.id + 1 } 
         else { idLabel = 1 }
@@ -41,7 +41,7 @@ export default function Filter({
     <div class="tag-position-area">
         <div  class="tag-area">
             {tag.label}
-            <img class="closeBtn" src={closeBtn} />
+            <img class="closeBtn" src={closeBtn} onClick={handleCancelBtn} />
          </div>
     </div>
     )

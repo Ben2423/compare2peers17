@@ -12,11 +12,14 @@ export default function HeroSection () {
                 <AddTags />
                 <div class="tags-area">
                     <div class="tags-position">
-                        <DisplayTags/>
+                        <div id="tag-area-1">
+                            <DisplayTags/>
+                        </div>
+                        <div id="tag-area-2">
+                            <DisplayFilters/>
+                        </div>
                     </div>
-                    <div class="filters-position">
-                        <DisplayFilters/>
-                    </div>
+    
                 </div>
            
             </div>

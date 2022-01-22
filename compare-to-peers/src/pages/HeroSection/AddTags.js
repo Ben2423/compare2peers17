@@ -1,5 +1,5 @@
 //dependencies 
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext, useRef} from 'react'
 import { ContextTags } from '../utils/providers/tagsdata'
 
 // imported pages
@@ -36,8 +36,22 @@ export default function AddTags () {
     }
 
 
+    function closeIndustryMenu () {
+        setIndustryDisplay('industry-dropDown-off')
+        setFiltersDisplay('filter-dropdown-off')
+    }
+
+
+      const node = useRef();
+      useEffect(() => {
+        document.addEventListener("mousedown", closeIndustryMenu);
+    
+      }, []);
+
+
+
     return (
-        <div class="input-area"> 
+        <div class="input-area"  ref={node} > 
             <div class="input-sections">
                 <p class="input-name">Select industry</p>
                 <input placeholder="select industry" onClick={handleIndustryDropDown}/>
@@ -54,7 +68,7 @@ export default function AddTags () {
 
             <div  class="filter-section">
                 <p class="input-name">Additional Filters</p>
-                <input placeholder="additional filters" onClick={handleMoreFiltersDropDown} />
+                <input placeholder="additional filters" onClick={handleMoreFiltersDropDown}  />
             </div>
             <div className={filtersDropDownOptions}>
                 {moreFilteredData.map(tag=> {

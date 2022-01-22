@@ -3,11 +3,12 @@ import React, { useContext, useState } from 'react'
 import { ContextTags } from '../../utils/providers/tagsdata'
 
 
-export default function Tag({
+export default function DropDownItem({
     tag,
 }) 
 
 {
+  
     const {selectIndustryTags, setSelectIndustryTags, filteredTagsData, setfilteredTagsData} = useContext(ContextTags)
  
     const addTagFromDropDown = function (newLabel){
@@ -19,16 +20,21 @@ export default function Tag({
         setSelectIndustryTags(copy);
     }
   
+  
     const removeTag = function(id) {
+        console.log('this is working')
         let filtered = filteredTagsData.filter(tagname => {
           return tagname.id != id
          })
          setfilteredTagsData(filtered)
        
     }
+
+    
     
 
-    function handleClick() {
+    const handleClick = function() {
+        console.log('handle click')
         removeTag(tag.id)
         addTagFromDropDown(tag.label)
     }
