@@ -1,6 +1,7 @@
 import Menu from './pages/Menu'
 import HeroSection from './pages/HeroSection/HeroSection'
 import './styles/App.sass'
+import CompanyList from './pages/ListCompanies/companieslist'
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
         <Menu />
         <HeroSection />
       </header>
+      <CompanyList />
+
     </div>
   );
 }

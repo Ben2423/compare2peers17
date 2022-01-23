@@ -10,7 +10,8 @@ import selectTags from '../../../data/industryTags.json/selectedIndustryTags.jso
 import filteredMoreData from '../../../data/AddNewFilters/filteredNewFilters.json'
 import selectedFilters from '../../../data/AddNewFilters/selectedFilters.json'
 
-
+//Company Data
+import companyData from '../../../data/CompanyData/companies.json'
 
 export const ContextTags = createContext()
 
@@ -26,9 +27,8 @@ const Provider = ({ children }) => {
     const [moreFilteredData, setfilteredMoreData] = useState(filteredMoreData)
     const [selectedFilterTags, setSelectFilterTags] = useState(selectedFilters)
 
-    console.log(selectTags)
-    console.log(selectIndustryTags)
-    
+    //companyDisplay
+    const [companyJsonData, setcompanyJsonData] = useState(companyData)
  
 
 	
@@ -41,6 +41,7 @@ const Provider = ({ children }) => {
         setfilteredMoreData,
         selectedFilterTags, 
         setSelectFilterTags,
+        companyJsonData
       
 	}
 

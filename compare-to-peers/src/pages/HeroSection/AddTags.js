@@ -6,6 +6,9 @@ import { ContextTags } from '../utils/providers/tagsdata'
 
 import DropDownItem from './DisplayIndustryTags/DropDownMenu'
 import DropDownFilterItem from './DisplayFilterTags/DropDownMenuItem'
+import DisplayTags from './DisplayIndustryTags/DisplayTags'
+import DisplayFilters from './DisplayFilterTags/DisplayFilters'
+
 
 export default function AddTags () {
 
@@ -36,22 +39,24 @@ export default function AddTags () {
     }
 
 
-    function closeIndustryMenu () {
-        setIndustryDisplay('industry-dropDown-off')
-        setFiltersDisplay('filter-dropdown-off')
-    }
+    // function closeIndustryMenu () {
+    //     setIndustryDisplay('industry-dropDown-off')
+    //     setFiltersDisplay('filter-dropdown-off')
+    // }
 
 
       const node = useRef();
-      useEffect(() => {
-        document.addEventListener("mousedown", closeIndustryMenu);
+    //   useEffect(() => {
+    //     document.addEventListener("mousedown", closeIndustryMenu);
     
-      }, []);
+    //   }, []);
 
 
 
     return (
+        
         <div class="input-area"  ref={node} > 
+        <div>
             <div class="input-sections">
                 <p class="input-name">Select industry</p>
                 <input placeholder="select industry" onClick={handleIndustryDropDown}/>
@@ -62,20 +67,29 @@ export default function AddTags () {
                         )
                     })}
                 </div>
-             
+                    <div id="tag-area-1">
+                         <DisplayTags/>
+                  </div>
+            </div>
             </div>
             
-
+            <div>
             <div  class="filter-section">
                 <p class="input-name">Additional Filters</p>
                 <input placeholder="additional filters" onClick={handleMoreFiltersDropDown}  />
             </div>
+            <div>
             <div className={filtersDropDownOptions}>
                 {moreFilteredData.map(tag=> {
                     return (
                         <DropDownFilterItem tag={tag}/>
                     )
                 })}
+            </div>
+                <div id="tag-area-2">
+                    <DisplayFilters/>
+                </div>
+            </div>
             </div>
         </div>
     )

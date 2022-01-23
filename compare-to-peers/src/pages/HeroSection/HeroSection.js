@@ -2,7 +2,7 @@ import AddTags from './AddTags'
 import HeroText from './HeroText'
 import RaiseGraph from './RaiseGraph'
 import DisplayTags from './DisplayIndustryTags/DisplayTags'
-import DisplayFilters from './DisplayFilterTags/DisplayFilters'
+
 
 export default function HeroSection () {
     return (
@@ -11,15 +11,6 @@ export default function HeroSection () {
                 <HeroText />
                 <AddTags />
                 <div class="tags-area">
-                    <div class="tags-position">
-                        <div id="tag-area-1">
-                            <DisplayTags/>
-                        </div>
-                        <div id="tag-area-2">
-                            <DisplayFilters/>
-                        </div>
-                    </div>
-    
                 </div>
            
             </div>
