@@ -36,32 +36,61 @@ const Provider = ({ children }) => {
 
 
 
+// display company cards based on industry tag
 const UpdateCompanyCardsByIndustryTag = function (label) {
-      
-        let filtered = companyJsonData.filter(company => {
-            let industries = company.industry
-                if (industries) {
-                   return industries.includes(label)
-                }
-             })
-             setcompanyJsonData(filtered)
+    let filtered = companyJsonData.filter(company => {
+        let industries = company.industry
+            if (industries) {
+                return industries.includes(label)
+            }
+        })
+        setcompanyJsonData(filtered)
 }
 
 const RedisplayCompaniesAfterCancelTag = function () {
     setcompanyJsonData(originalCompanyJsonData)
-    if(selectIndustryTags.length == 1) {
-        return
-}
-
+        if(selectIndustryTags.length == 1) {
+            return
+        }
     selectIndustryTags.filter(tag => {
         let filtered = companyJsonData.filter(company => {
             let industries = company.industry 
             return (industries.includes(tag.label))
-    
         })
         setcompanyJsonData(filtered)
     })
 }
+
+//display company cards based on additional filters tags
+
+
+function CancelFilter (tag) {
+        
+    let filtered = selectedFilterTags.filter(tagname => {
+        return tagname.id != tag.id
+       })
+       setSelectFilterTags(filtered)
+       console.log(filtered)
+       console.log(selectedFilterTags.length)
+}
+
+const RedisplayCompaniesAfterCancelFilter = function () {
+    if(selectedFilterTags.length == 1) {
+            return
+        }      
+    selectedFilterTags.filter(tag => {
+            let label = tag.label
+            let filtered = companyJsonData.filter(company => {
+                let industries = company.industry 
+                return (industries.includes(label))
+        })
+       
+        setcompanyJsonData(filtered)
+    })
+}
+
+
+
 	
     const value= {
         filteredTagsData, 
@@ -77,7 +106,9 @@ const RedisplayCompaniesAfterCancelTag = function () {
 
         originalCompanyJsonData,
         UpdateCompanyCardsByIndustryTag,
-        RedisplayCompaniesAfterCancelTag
+        RedisplayCompaniesAfterCancelTag,
+        RedisplayCompaniesAfterCancelFilter,
+        CancelFilter
       
 	}
 

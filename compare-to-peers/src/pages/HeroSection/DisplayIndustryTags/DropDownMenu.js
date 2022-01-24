@@ -9,9 +9,9 @@ export default function DropDownItem({
 
 {
   
-    const {selectIndustryTags, setSelectIndustryTags, filteredTagsData, setfilteredTagsData, companyJsonData,
-        setcompanyJsonData, UpdateCompanyCardsByIndustryTag} = useContext(ContextTags)
- 
+    const {selectIndustryTags, setSelectIndustryTags, filteredTagsData, setfilteredTagsData, UpdateCompanyCardsByIndustryTag} = useContext(ContextTags)
+
+
     const addTagFromDropDown = function (newLabel){
         let copy = [...selectIndustryTags]
         let lastLabel = copy.at(-1), idLabel
@@ -23,7 +23,6 @@ export default function DropDownItem({
   
   
     const removeTag = function(id) {
-
         let filtered = filteredTagsData.filter(tagname => {
           return tagname.id != id
          })
@@ -34,7 +33,6 @@ export default function DropDownItem({
     
 
     const handleClick = function() {
-      
         removeTag(tag.id)
         addTagFromDropDown(tag.label)
         UpdateCompanyCardsByIndustryTag(tag.label)

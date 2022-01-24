@@ -9,7 +9,7 @@ export default function DropDownFilters ({
 }
  
 ) {
-    const {moreFilteredData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags} = useContext(ContextTags)
+    const {moreFilteredData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags, UpdateCompanyCardsByIndustryTag} = useContext(ContextTags)
 
     const addTagFromDropDown = function (newLabel){
         let copy = [...selectedFilterTags]
@@ -30,9 +30,10 @@ export default function DropDownFilters ({
        
     }
 
-    function handleClick() {
+    const handleClick = function() {
         removeTag(tag.id)
         addTagFromDropDown(tag.label)
+        UpdateCompanyCardsByIndustryTag(tag.label)
     }
 
 

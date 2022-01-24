@@ -15,7 +15,7 @@ export default function Filter({
 }) 
 {
 
-    const {moreFilteredData, setfilteredMoreData, selectedFilterTags, setSelectFilterTags} = useContext(ContextTags)
+    const {moreFilteredData, RedisplayCompaniesAfterCancelFilter, setfilteredMoreData, selectedFilterTags, setSelectFilterTags, setcompanyJsonData, originalCompanyJsonData, CancelFilter} = useContext(ContextTags)
 
 
     const addTagToOriginalData = (newLabel) => {
@@ -30,11 +30,16 @@ export default function Filter({
       
  
     function handleCancelBtn () {
+        CancelFilter(tag)
         addTagToOriginalData(tag.label)
-        let filtered = selectedFilterTags.filter(tagname => {
-            return tagname.id != tag.id
-           })
-           setSelectFilterTags(filtered)
+  
+        // let filtered = selectedFilterTags.filter(tagname => {
+        //     return tagname.id != tag.id
+        //    })
+        //    setSelectFilterTags(filtered)
+           setcompanyJsonData(originalCompanyJsonData)
+           
+        //    RedisplayCompaniesAfterCancelFilter()
     }
 
     return (
