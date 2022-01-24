@@ -14,10 +14,7 @@ export default function CompanyCard ({
         <div class="company-card">
             <div class="company-header">
                 <div>
-              
                     <img  class="image" src={company.companyPhoto} />
-
-
                 </div>
             </div>
             <div class="company-card-body">

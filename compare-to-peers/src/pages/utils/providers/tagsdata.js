@@ -12,10 +12,13 @@ import selectedFilters from '../../../data/AddNewFilters/selectedFilters.json'
 
 //Company Data
 import companyData from '../../../data/CompanyData/companies.json'
+import originalCompanyData from '../../../data/CompanyData/originalCompanyData.json'
 
 export const ContextTags = createContext()
 
 const Provider = ({ children }) => {
+
+
  
     //***** this section is for selecting industry dropdown items and tags ***
 
@@ -29,8 +32,36 @@ const Provider = ({ children }) => {
 
     //companyDisplay
     const [companyJsonData, setcompanyJsonData] = useState(companyData)
- 
+    const [originalCompanyJsonData, setoriginalCompanyJsonData] = useState(originalCompanyData)
 
+
+
+const UpdateCompanyCardsByIndustryTag = function (label) {
+      
+        let filtered = companyJsonData.filter(company => {
+            let industries = company.industry
+                if (industries) {
+                   return industries.includes(label)
+                }
+             })
+             setcompanyJsonData(filtered)
+}
+
+const RedisplayCompaniesAfterCancelTag = function () {
+    setcompanyJsonData(originalCompanyJsonData)
+    if(selectIndustryTags.length == 1) {
+        return
+}
+
+    selectIndustryTags.filter(tag => {
+        let filtered = companyJsonData.filter(company => {
+            let industries = company.industry 
+            return (industries.includes(tag.label))
+    
+        })
+        setcompanyJsonData(filtered)
+    })
+}
 	
     const value= {
         filteredTagsData, 
@@ -41,7 +72,12 @@ const Provider = ({ children }) => {
         setfilteredMoreData,
         selectedFilterTags, 
         setSelectFilterTags,
-        companyJsonData
+        companyJsonData,
+        setcompanyJsonData,
+
+        originalCompanyJsonData,
+        UpdateCompanyCardsByIndustryTag,
+        RedisplayCompaniesAfterCancelTag
       
 	}
 

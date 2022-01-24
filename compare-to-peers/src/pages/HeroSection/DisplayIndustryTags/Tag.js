@@ -13,7 +13,8 @@ export default function Tag({
 }) 
 {
 
-    const {selectIndustryTags, setSelectIndustryTags, filteredTagsData, setfilteredTagsData} = useContext(ContextTags)
+    const {selectIndustryTags, setSelectIndustryTags, filteredTagsData, setfilteredTagsData, companyJsonData,
+        setcompanyJsonData,         RedisplayCompaniesAfterCancelTag} = useContext(ContextTags)
  
 
     const addTagToOriginalData = (newLabel) => {
@@ -33,6 +34,7 @@ export default function Tag({
             return tagname.id != tag.id
            })
            setSelectIndustryTags(filtered)
+           RedisplayCompaniesAfterCancelTag()
     }
 
 

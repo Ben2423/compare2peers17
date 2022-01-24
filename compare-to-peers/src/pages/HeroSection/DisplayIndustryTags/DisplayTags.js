@@ -4,7 +4,8 @@ import Tag from './Tag'
 
 export default function DisplayTags() {
     const {selectIndustryTags, filteredTagsData} = useContext(ContextTags)
-    console.log(selectIndustryTags)
+    console.log(selectIndustryTags.length)
+
 
     return (
         <div >

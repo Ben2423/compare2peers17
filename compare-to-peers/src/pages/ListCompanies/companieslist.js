@@ -7,12 +7,12 @@ export default function ListCompanies ({
 }) {
 
     const {companyJsonData} = useContext(ContextTags)
-    console.log(companyJsonData)
+
     return (
         <div>
         
             <div id="company-display-area">
-            {companyJsonData .map(company=> {
+            {companyJsonData.map(company=> {
                 return (
                     <CompanyCard company={company}/>
                 )
