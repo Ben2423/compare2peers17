@@ -45,30 +45,23 @@ export default function RaiseGraph () {
 
 
     return (
-     
-        <div id="card-area"> 
+      <div id="card-area"> 
         <h2>Raise Goal</h2>
         <div class="input-range-area">
-        <input class="range" type="range" min={50000} max={2000002} value={firstValue} onChange={handleOnChange1} tabindex="1"  />
-
-        <Output style={{left: findLeftPosition(firstValue, 50000, 2000001)}}>
-        {firstValueUsd}
-        
-        
-        </Output>
-    
-       <input class="overlay-value" type="range" min={2000002} max={5000000} value={secondValue} onChange={handleOnChange2} tabindex="0"  />
-       <Output id="output" style={{left: findLeftPosition(secondValue, 2000002, 5000000)}}>
-       {secondValueUsd}
-
-    
-
-       </Output>
-     
-       </div>
-
-          
+          <span style={{position: 'relative', width: 250}}>
+            <input class="range" type="range" min={50000} max={2000002} value={firstValue} onChange={handleOnChange1} tabindex="1"  />
+            <Output style={{left: findLeftPosition(firstValue, 50000, 2000001)}}>
+              {firstValueUsd}
+            </Output>
+          </span>
+          <span style={{position: 'relative', width: 250}}>
+            <input class="overlay-value" type="range" min={2000002} max={5000000} value={secondValue} onChange={handleOnChange2} tabindex="0"  />
+            <Output id="output" style={{left: findLeftPosition(secondValue, 2000002, 5000000)}}>
+              {secondValueUsd}
+            </Output>
+          </span>
         </div>
+      </div>
       
     )
 }
